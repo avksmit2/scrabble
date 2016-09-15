@@ -30,10 +30,34 @@
 
         }
 
+        function test_returnScore_ignoreNumbers()
+        {
+          // Assemble
+          $test_returnScore = new Players;
+          $input = "1Ab";
+
+          // Act
+          $result = $test_returnScore->returnScore($input);
+
+          // Assert
+          $this->assertEquals(4, $result);
+        }
+
+        function test_returnScore_threeLetters()
+        {
+          // Assemble
+          $test_returnScore = new Players;
+          $input = "iAeb";
+
+          // Act
+          $result = $test_returnScore->returnScore($input);
+
+          // Assert
+          $this->assertEquals(6, $result);
+        }
+
+
 
 
     }
-
-
-
 ?>
