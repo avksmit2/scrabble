@@ -2,7 +2,7 @@
 
 #### _9-15-16_
 
-#### By _**Martin Cartledge &amp; Matt Brandenburg**_
+#### By _**Martin Cartledge &amp; Angie Smith**_
 
 ## Description
 
@@ -12,9 +12,10 @@ _This application will take a word and give you it's scrabble score!_
 
 | Behavior      | Input       |Output|
 | ------------- |-------------| -----|
-| Behavior 1 | Input 1 | Output 1 |
-| Behavior 2 | Input 2 | Output 2 |
-| Behavior 3 | Input 3 | Output 3 |
+| Return the score for a letter | a | 1 |
+| Return the sum of two letters | a, b | 4 |
+| Ignore numbers | 1, a, b | 4 |
+| Ignore whether a letter is capitalized or not | A, b | 4 |
 
 
 ## Setup/Installation Requirements
@@ -56,4 +57,4 @@ Twig_
 
 *This webpage is licensed under the MIT license.*
 
-Copyright (c) 2016 **_Martin Cartledge &amp; Matt Brandenburg_**
+Copyright (c) 2016 **_Martin Cartledge &amp; Angie Smith_**
