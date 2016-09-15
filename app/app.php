@@ -4,7 +4,15 @@
     require_once __DIR__."/../src/Scrabble.php";
 
     session_start();
-    $_SESSION['player_scores'] = array();
+
+    if (empty($_SESSION['player1']))
+    {
+        $_SESSION['player1'] = "";
+    };
+    if (empty($_SESSION['player2']))
+    {
+        $_SESSION['player2'] = "";
+    };
 
     use Symfony\Component\Debug\Debug;
     Debug::enable();
@@ -18,19 +26,31 @@
     ));
 
     $app->get("/", function() use ($app) {
-        return $app['twig']->render("home.html.twig");
+
+        return $app['twig']->render("home.html.twig", array("game" => $_SESSION['player1']));
     });
 
     $app->post("/results", function() use ($app) {
-        $player1 = new Players();
-        $player2 = new Players();
+        if (empty($_SESSION['player1']))
+        {
+            $_SESSION['player1'] = new Players();
+        };
+        if (empty($_SESSION['player2']))
+        {
+            $_SESSION['player2'] = new Players();
+        };
 
+        $player1 = $_SESSION['player1'];
+        $player2 = $_SESSION['player2'];
         $player1Score = $player1->returnScore($_POST["player1Word"]);
         $player2Score = $player2->returnScore($_POST["player2Word"]);
-        array_push($_SESSION['player_scores'], $player1Score);
-        array_push($_SESSION['player_scores'], $player2Score);
 
-        return $app['twig']->render("results.html.twig", array('player1Score'=>$player1Score, 'player2Score'=>$player2Score));
+        return $app['twig']->render("results.html.twig", array('player1'=>$player1, 'player2'=>$player2));
+    });
+
+    $app->get("/clear", function() use ($app) {
+        Players::deleteAll();
+        return $app['twig']->render("home.html.twig");
     });
 
     return $app;
