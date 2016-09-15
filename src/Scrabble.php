@@ -1,11 +1,11 @@
 <?php
     class Players
     {
-        private $score;
+        public $score;
 
         function __construct()
         {
-            $score = 0;
+            $this->score = 0;
         }
 
         function returnScore($input)
@@ -23,7 +23,5 @@
             }
             return $this->score;
         }
-
-
     }
 ?>

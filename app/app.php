@@ -4,7 +4,7 @@
     require_once __DIR__."/../src/Scrabble.php";
 
     session_start();
-    $_SESSION['collection'];
+    $_SESSION['player_scores'] = array();
 
     use Symfony\Component\Debug\Debug;
     Debug::enable();
@@ -18,12 +18,19 @@
     ));
 
     $app->get("/", function() use ($app) {
-      return $app['twig']->render("home.html.twig");
+        return $app['twig']->render("home.html.twig");
     });
 
+    $app->post("/results", function() use ($app) {
+        $player1 = new Players();
+        $player2 = new Players();
 
-    $app->get("/test", function() use ($app) {
-      return 'test variables here';
+        $player1Score = $player1->returnScore($_POST["player1Word"]);
+        $player2Score = $player2->returnScore($_POST["player2Word"]);
+        array_push($_SESSION['player_scores'], $player1Score);
+        array_push($_SESSION['player_scores'], $player2Score);
+
+        return $app['twig']->render("results.html.twig", array('player1Score'=>$player1Score, 'player2Score'=>$player2Score));
     });
 
     return $app;

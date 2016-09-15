@@ -12,10 +12,11 @@ _This application will take a word and give you it's scrabble score!_
 
 | Behavior      | Input       |Output|
 | ------------- |-------------| -----|
-| Return the score for a letter | a | 1 |
-| Return the sum of two letters | a, b | 4 |
-| Ignore numbers | 1, a, b | 4 |
 | Ignore whether a letter is capitalized or not | A, b | 4 |
+| Ignore numbers | 1ab | 4 |
+| Return the score for a letter | a | 1 |
+| Return the sum of two letters | ab | 4 |
+| Return the sum of multiple letters | iabe | 4 |
 
 
 ## Setup/Installation Requirements

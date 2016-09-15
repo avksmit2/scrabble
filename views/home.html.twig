@@ -1,10 +1,29 @@
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Template</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Scrabble</title>
   </head>
   <body>
-      <p>hi</p>
-      <a href="/test"><button type="submit" name="button">Tester</button></a>
+      <h1 class="well text-center">Let's Play Scrabble!</h1>
+      <div class="container">
+          <form action="/results" method="post">
+              <div class="row">
+                  <h3>Enter your words below:</h3>
+                  <div class="col-sm-6">
+                      <div class="form-group">
+                          <label for="player1Word">Player 1</label>
+                          <input id="player1Word" name="player1Word" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="form-group">
+                          <label for="player2Word">Player 2</label>
+                          <input id="player2Word" name="player2Word" type="text" class="form-control">
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" name="button">Play!</button>
+          </form>
+      </div>
   </body>
 </html>

@@ -43,7 +43,7 @@
           $this->assertEquals(4, $result);
         }
 
-        function test_returnScore_threeLetters()
+        function test_returnScore_multipleLetters()
         {
           // Assemble
           $test_returnScore = new Players;
@@ -55,9 +55,5 @@
           // Assert
           $this->assertEquals(6, $result);
         }
-
-
-
-
     }
 ?>
