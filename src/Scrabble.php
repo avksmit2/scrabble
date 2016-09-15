@@ -28,7 +28,6 @@
         {
             $_SESSION['player1'] = "";
             $_SESSION['player2'] = "";
-            return $_SESSION['player1'];
         }
     }
 ?>
